@@ -9,7 +9,7 @@ import (
 )
 
 const requestUrl = "https://nhk.dekiru.app/news"
-const isoFormat = "2022-01-01T00:00:00.000Z"
+const isoFormat = "2006-01-02T15:04:05.000Z07:00"
 
 type News struct {
 	NewsId          string
