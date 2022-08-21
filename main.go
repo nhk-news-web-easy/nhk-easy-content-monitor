@@ -12,10 +12,20 @@ func HandleRequest(ctx context.Context) (string, error) {
 	startDate := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.UTC)
 	endDate := time.Date(now.Year(), now.Month(), now.Day(), 23, 59, 59, 0, time.UTC)
 
-	_, err := nhk.FetchNews(startDate, endDate)
+	newsList, err := nhk.FetchNews(startDate, endDate)
 
 	if err != nil {
 		return "error", err
+	}
+
+	valid, err := nhk.ValidateNews(newsList)
+
+	if err != nil {
+		return "error", err
+	}
+	
+	if !valid {
+		return "error", nil
 	}
 
 	return "ok", nil
