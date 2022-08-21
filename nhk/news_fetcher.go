@@ -39,7 +39,7 @@ func FetchNews(startDate time.Time, endDate time.Time) ([]News, error) {
 	}
 
 	if response.StatusCode != http.StatusOK {
-		return nil, err
+		return nil, nil
 	}
 
 	body, err := ioutil.ReadAll(response.Body)
