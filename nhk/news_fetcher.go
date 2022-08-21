@@ -44,6 +44,10 @@ func FetchNews(startDate time.Time, endDate time.Time) ([]News, error) {
 
 	body, err := ioutil.ReadAll(response.Body)
 
+	if err != nil {
+		return nil, err
+	}
+
 	var newsList []News
 
 	err = json.Unmarshal(body, &newsList)

@@ -23,7 +23,7 @@ func HandleRequest(ctx context.Context) (string, error) {
 	if err != nil {
 		return "error", err
 	}
-	
+
 	if !valid {
 		return "error", nil
 	}
