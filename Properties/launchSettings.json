@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "nhk_easy_content_monitor": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7118",
-      "launchBrowser": false
-    }
-  }
-}
