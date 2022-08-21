@@ -2,6 +2,7 @@ package nhk
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -39,7 +40,7 @@ func FetchNews(startDate time.Time, endDate time.Time) ([]News, error) {
 	}
 
 	if response.StatusCode != http.StatusOK {
-		return nil, nil
+		return nil, errors.New(fmt.Sprintf("Expected 200, but got %d", response.StatusCode))
 	}
 
 	body, err := ioutil.ReadAll(response.Body)

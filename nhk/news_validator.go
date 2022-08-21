@@ -1,6 +1,10 @@
 package nhk
 
-import "net/http"
+import (
+	"errors"
+	"fmt"
+	"net/http"
+)
 
 func ValidateNews(newsList []News) (bool, error) {
 	for _, news := range newsList {
@@ -36,7 +40,7 @@ func validateUrl(url string) (bool, error) {
 	}
 
 	if response.StatusCode != http.StatusOK {
-		return false, nil
+		return false, errors.New(fmt.Sprintf("Expected 200, but got %d", response.StatusCode))
 	}
 
 	return true, nil
