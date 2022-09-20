@@ -3,10 +3,11 @@ package nhk
 import (
 	"errors"
 	"fmt"
+	"github.com/nhk-news-web-easy/nhk-news-fetcher-go"
 	"net/http"
 )
 
-func ValidateNews(newsList []News) (bool, error) {
+func ValidateNews(newsList []nhk_fetcher.News) (bool, error) {
 	for _, news := range newsList {
 		urls := []string{news.Url, news.M3u8Url}
 
